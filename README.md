@@ -1,5 +1,8 @@
 # Algolia Take-Home Assignment:  Muhammed Constantino
-## To run the app:
+
+Live deployment: https://mconstantino-algolia.vercel.app/
+
+## To run the app locally:
 
 ```npm i```
 
