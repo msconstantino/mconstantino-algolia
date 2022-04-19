@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { SearchBox } from "./components/Searchbox";
+import { Hits } from "./components/Hits";
+import { Hit } from "./components/Hit";
+import algoliasearch from "algoliasearch/lite";
+import { InstantSearch } from "react-instantsearch-hooks";
+import {Container} from 'react-bootstrap';
 
-function App() {
+const searchClient = algoliasearch(
+  "A68302HCS7",
+  "d6dc59f689fcb2c0aa590e9fce6565fc"
+);
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <InstantSearch searchClient={searchClient} indexName="airports">
+      <Container>
+        <SearchBox placeholder="Search for an airport" />
+        <Hits hitComponent={Hit} />
+      </Container>
+    </InstantSearch>
   );
 }
-
-export default App;
