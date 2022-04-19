@@ -29,6 +29,6 @@ svg {
 }
 
 .ais-SearchBox-form {
+    margin: 1rem;
     width: fit-content;
-    margin-left: auto;
 }

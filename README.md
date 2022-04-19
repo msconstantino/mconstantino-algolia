@@ -21,7 +21,7 @@ To keep this ReadME readable, answers to customer questions are [here](https://d
 ## Project Outline
 **Quality of relevance settings (eg. searchable attributes, custom ranking, index configuration settings)**
 
-I chose the airport data set for my take home assignment. The data included several useful points, many of which could be of interest to a user. From my own past experience searching for airports, I tended to search for the ones that I was most likely to travel to: the busiest airports in a country, state or city. For example, the London, UK metro area has 6 airports. Yet most likely, international passengers would only fly through Heathrow or Gatwick, as they have the highest links_count, or connection flights. Therefore, I decided to use the links_count as my highest custom ranking, sorting the results in descending order.
+I chose the airport data set for my take home assignment. The data included several useful points, many of which could be of interest to a user. From my own past experience searching for airports, I tended to search for the ones that I was most likely to travel to: the busiest airports in a country, state or city. For example, the London, UK metro area has 6 airports. Yet most likely, international passengers would only fly through Heathrow or Gatwick, as they have the highest links_count, or connection flights. Therefore, I decided to use the links_count as my highest custom ranking, sorting the results in descending order. I maintained the default Ranking Criteria as recommended.
 
 ---
 

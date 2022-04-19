@@ -44,8 +44,7 @@ export function SearchBox(props) {
     <Row className="ais-SearchBox">
       <Col>
         <h1>Airport Database</h1>
-      </Col>
-      <Col>
+
         <form
           action=""
           className="ais-SearchBox-form"
