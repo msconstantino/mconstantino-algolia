@@ -48,7 +48,7 @@ I believe that this would be a good foundation to show someone in the air travel
 
 ## Feedback notes:
 * In the https://github.com/algolia/datasets/tree/master/wine repo the  wine-search.now.sh is a dead link.
-* In https://www.algolia.com/doc/guides/building-search-ui/getting-started/react-hooks/?client=SearchBox.jsx there are methods from react that are used that aren't imported. A top line would look something like:
+* In https://www.algolia.com/doc/guides/building-search-ui/getting-started/react-hooks/?client=SearchBox.jsx#add-a-search-box there are methods from react that are used that aren't imported. A top line would look something like:
 ```import { useState, useRef, useEffect } from 'react'; is missing```
 
 
