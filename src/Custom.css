@@ -1,0 +1,128 @@
+* {
+    list-style: none;
+}
+
+.ais-RefinementList-list {
+    padding-left: 0rem;
+}
+
+.ais-RefinementList-checkbox {
+    /* appearance: none;
+    background-color: rgba(65, 66, 71, 0.08);
+    border: none;
+    border-radius: 2px;
+    height: 1rem;
+    margin: 0;
+    margin-right: 1rem;
+    position: relative;
+    width: 1rem; */
+}
+
+.ais-RefinementList-count {
+    align-items: center;
+    background-color: rgba(65, 66, 71, 0.08);
+    border-radius: 4px;
+    color: rgba(33, 36, 61, 0.8);
+    /* display: flex; */
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    margin-left: 8px;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.ais-RefinementList-checkbox {
+    margin-right: 0.5rem;
+}
+
+.ais-Pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.ais-Pagination-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.ais-Pagination-item {
+    margin: 0 1rem;
+}
+
+.ais-Panel-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+input {
+    outline: none;
+}
+
+path:focus {
+    outline: none;
+}
+
+rect {
+    fill: lightblue;
+}
+
+.ais-ClearRefinements-button {
+    border: 1px solid;
+    border-radius: 0.25rem;
+    color: white;
+    background-color: black;
+}
+
+.ais-ClearRefinements-button--disabled {
+    border: 1px solid grey;
+    border-radius: 0.25rem;
+    color: grey;
+    background-color: white;
+}
+
+.ais-ClearRefinements-button--disabled>svg>g>path {
+    fill: white;
+}
+
+.ais-ClearRefinements-button>svg {
+    margin-right: 0.25rem;
+}
+
+.ais-ClearRefinements-button>svg>g {
+    opacity: 1;
+}
+
+.ais-SearchBox-form>button {
+    display: none;
+}
+
+.ais-SearchBox-input {
+    width: 75%
+}
+
+.ais-Panel {
+    width: 90%
+}
+
+.searchbox {
+    align-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav,
+.nav-pills {
+    background-color: rgb(243, 243, 243);
+    padding: 1rem;
+    margin-bottom: 2rem!important;
+}
+
+.search-row {
+    margin-bottom: 1rem;
+}
+
+.rsm-geography:hover {
+    fill: #EAEAEC
+}

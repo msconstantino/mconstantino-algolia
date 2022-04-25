@@ -1,22 +1,18 @@
-import { SearchBox } from "./components/Searchbox";
-import { Hits } from "./components/Hits";
-import { Hit } from "./components/Hit";
-import algoliasearch from "algoliasearch/lite";
-import { InstantSearch } from "react-instantsearch-hooks";
-import {Container} from 'react-bootstrap';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import TableView from "./views/Table";
+import MapView from "./views/Map";
+import GlobeView from "./views/Globe";
 
-const searchClient = algoliasearch(
-  "A68302HCS7",
-  "d6dc59f689fcb2c0aa590e9fce6565fc"
-);
 
-export default function App() {
+function App() {
   return (
-    <InstantSearch searchClient={searchClient} indexName="airports">
-      <Container>
-        <SearchBox placeholder="Search for an airport" />
-        <Hits hitComponent={Hit} />
-      </Container>
-    </InstantSearch>
+    <Routes>
+      <Route path="/" exact element={<TableView />}></Route>
+      <Route path="/map" exact element={<MapView />}></Route>
+      <Route path="/globe" exact element={<GlobeView />}></Route>
+    </Routes>
   );
 }
+
+export default App;
