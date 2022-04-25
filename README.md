@@ -1,4 +1,4 @@
-# Algolia Take-Home Assignment:  Muhammed Constantino
+# Algolia Take-Home Assignment V2:  Muhammed Constantino
 
 Live deployment: https://mconstantino-algolia.vercel.app/
 

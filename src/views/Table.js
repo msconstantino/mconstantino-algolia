@@ -10,12 +10,12 @@ import {
   Configure,
   SearchBox,
 } from "react-instantsearch-dom";
-import algoliasearch from "algoliasearch/lite";
 import { PriceSlider, NoResults, ResultsNumberMobile } from "../widgets";
 import { Search } from "react-bootstrap-icons";
-import "../Custom.css";
-import Navigation from "../components/Navigation";
 import { Container, Col, Row, Table } from "react-bootstrap";
+import Navigation from "../components/Navigation";
+import algoliasearch from "algoliasearch/lite";
+import "../Custom.css";
 
 const searchClient = algoliasearch(
   "A68302HCS7",

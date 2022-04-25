@@ -1,8 +1,7 @@
-import React, { useRef, useState, memo } from "react";
+import React, { useRef, useState } from "react";
 import {
   InstantSearch,
   RefinementList,
-  Pagination,
   ClearRefinements,
   connectHits,
   HitsPerPage,
@@ -10,13 +9,7 @@ import {
   Configure,
   SearchBox,
 } from "react-instantsearch-dom";
-import algoliasearch from "algoliasearch/lite";
-import ReactTooltip from "react-tooltip";
-import { Search } from "react-bootstrap-icons";
-import { PriceSlider, NoResults, ResultsNumberMobile } from "../widgets";
-import "../Custom.css";
-import Navigation from "../components/Navigation";
-import { Container, Col, Row } from "react-bootstrap";
+
 import {
   ComposableMap,
   Geographies,
@@ -24,6 +17,13 @@ import {
   Marker,
   ZoomableGroup,
 } from "react-simple-maps";
+import { Container, Col, Row } from "react-bootstrap";
+import { Search } from "react-bootstrap-icons";
+import { PriceSlider, NoResults, ResultsNumberMobile } from "../widgets";
+import algoliasearch from "algoliasearch/lite";
+import ReactTooltip from "react-tooltip";
+import "../Custom.css";
+import Navigation from "../components/Navigation";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -33,10 +33,7 @@ const searchClient = algoliasearch(
   "d6dc59f689fcb2c0aa590e9fce6565fc"
 );
 
-
-
 const MapView = (props) => {
-  const [content, setContent] = useState("");
   const containerRef = useRef(null);
   const headerRef = useRef(null);
 
@@ -62,8 +59,6 @@ const MapView = (props) => {
 
     closeFilters();
   }
-
-  let temp = "";
 
   const Hits = ({ hits }) => (
     <>
@@ -93,7 +88,7 @@ const MapView = (props) => {
               //   setContent("");
               // }}
             >
-                <circle r={1.5} fill="#F00" />
+              <circle r={1.5} fill="#F00" />
             </Marker>
           ))}
         </ZoomableGroup>
@@ -235,10 +230,8 @@ const MapView = (props) => {
                   </header>
                 </Col>
               </Row>
-
               <CustomHits />
               <NoResults />
-
             </section>
           </Col>
         </Row>

@@ -1,8 +1,7 @@
-import React, { useRef, useState, memo } from "react";
+import React, { useRef, useState } from "react";
 import {
   InstantSearch,
   RefinementList,
-  Pagination,
   ClearRefinements,
   connectHits,
   HitsPerPage,
@@ -10,22 +9,20 @@ import {
   Configure,
   SearchBox,
 } from "react-instantsearch-dom";
-import algoliasearch from "algoliasearch/lite";
-import ReactTooltip from "react-tooltip";
-import { Search } from "react-bootstrap-icons";
-import { PriceSlider, NoResults, ResultsNumberMobile } from "../widgets";
-import "../Custom.css";
-import Navigation from "../components/Navigation";
-import { Container, Col, Row } from "react-bootstrap";
+
 import {
   ComposableMap,
   Geographies,
   Geography,
-  Marker,
   ZoomableGlobe,
-  ZoomableGroup,
 } from "react-simple-maps-globe";
+import { PriceSlider, NoResults, ResultsNumberMobile } from "../widgets";
+import { Container, Col, Row } from "react-bootstrap";
+import { Search } from "react-bootstrap-icons";
 import { geoCircle } from "d3-geo";
+import algoliasearch from "algoliasearch/lite";
+import Navigation from "../components/Navigation";
+import "../Custom.css";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -36,7 +33,6 @@ const searchClient = algoliasearch(
 );
 
 const GlobeView = (props) => {
-  const [content, setContent] = useState("");
   const containerRef = useRef(null);
   const headerRef = useRef(null);
 
@@ -63,70 +59,64 @@ const GlobeView = (props) => {
     closeFilters();
   }
 
-  const circles = [
-    geoCircle().center([3.4, 6.5]).radius(0.5)(),
-    geoCircle().center([100.5, 13.7]).radius(0.5)(),
-    geoCircle().center([-99.1, 19.4]).radius(0.5)(),
-  ];
-
-
-
   const Hits = ({ hits }) => {
-
-    const markers = []
+    const markers = [];
 
     hits.map((hit) => {
-      markers.push(geoCircle().center([hit._geoloc.lng, hit._geoloc.lat]).radius(0.5)())
-    })
+      markers.push(
+        geoCircle().center([hit._geoloc.lng, hit._geoloc.lat]).radius(0.5)()
+      );
+    });
 
     return (
-    <>
-      <ComposableMap
-        width={750}
-        height={750}
-        projection="orthographic"
-        projectionConfig={{ scale: 330 }}
-      >
-        <ZoomableGlobe>
-          <circle
-            cx={375}
-            cy={375}
-            r={330}
-            fill="transparent"
-            stroke="#CFD8DC"
-          />
-          <Geographies disableOptimization geography={geoUrl}>
-            {(geos, proj) =>
-              geos.map((geo, i) => (
-                <Geography
-                  key={geo.id + i}
-                  geography={geo}
-                  projection={proj}
-                  style={{
-                    default: { fill: "#EAEAEC", stroke: "#fff" },
-                  }}
-                />
-              ))
-            }
-          </Geographies>
-          <Geographies geography={markers} disableOptimization>
-          {(geos, proj) =>
-            geos.map((geo, i) =>
-              <Geography
-                key={i}
-                geography={geo}
-                projection={proj}
-                style={{
-                  default: { fill: "red", stroke: "#FFF" }
-                }}
-              />
-          )}
-        </Geographies>
-        </ZoomableGlobe>
-      </ComposableMap>
-    </>
-    )
-      };
+      <>
+        <ComposableMap
+          width={750}
+          height={750}
+          projection="orthographic"
+          projectionConfig={{ scale: 330 }}
+        >
+          <ZoomableGlobe>
+            <circle
+              cx={375}
+              cy={375}
+              r={330}
+              fill="transparent"
+              stroke="#CFD8DC"
+            />
+            <Geographies disableOptimization geography={geoUrl}>
+              {(geos, proj) =>
+                geos.map((geo, i) => (
+                  <Geography
+                    key={geo.id + i}
+                    geography={geo}
+                    projection={proj}
+                    style={{
+                      default: { fill: "#EAEAEC", stroke: "#fff" },
+                    }}
+                  />
+                ))
+              }
+            </Geographies>
+            <Geographies geography={markers} disableOptimization>
+              {(geos, proj) =>
+                geos.map((geo, i) => (
+                  <Geography
+                    key={i}
+                    geography={geo}
+                    projection={proj}
+                    style={{
+                      default: { fill: "red", stroke: "#FFF" },
+                    }}
+                  />
+                ))
+              }
+            </Geographies>
+          </ZoomableGlobe>
+        </ComposableMap>
+      </>
+    );
+  };
 
   const CustomHits = connectHits(Hits);
 
@@ -256,7 +246,7 @@ const GlobeView = (props) => {
                           value: 3282,
                         },
                       ]}
-                      defaultRefinement={250}
+                      defaultRefinement={500}
                     />
                   </header>
                 </Col>
